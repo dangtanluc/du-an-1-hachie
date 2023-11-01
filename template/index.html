@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bg_my_make.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid bg-danger">
+      <!-- menu start -->
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="nav-fill" href="<?= $base_url ?>page/home"
+              ><img class="w-80" src="img/logotrang.png" alt=""
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form
+                class="w-50 d-flex navbar-nav me-auto mb-2 mb-lg-0 mx-auto"
+                role="search"
+              >
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn" type="submit">
+                  <img class="w-75" src="img/icons8-search-64.png" alt="" />
+                </button>
+              </form>
+
+              <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+                <li class="nav-item">
+                  <a
+                    class="w-mymake nav-link"
+                    aria-current="page"
+                    href="<?= $base_url ?>page/cart"
+                    ><img class="w-75" src="img/icons8-basket-64.png" alt=""
+                  /></a>
+                </li>
+                <?php if (!isset($_SESSION['user'])) : ?>
+                <li class="nav-item">
+                  <a
+                    class="w-mymake nav-link"
+                    aria-current="page"
+                    href="<?= $base_url ?>user/login"
+                    ><img class="w-75" src="img/icons8-login-64.png" alt=""
+                  /></a>
+                </li>
+                <?php else : ?>
+                <li class="nav-item dropdown">
+                  <a
+                    class="w-mymake nav-link text-white dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      class="w-75 rounded-circle border border-warning"
+                      src="img/tham-tu-lung-danh-conan---tap-100---ban-thuong_3.jpg"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="dropdown-menu end-0" style="left: auto">
+                    <li>
+                      <a class="dropdown-item" href="#">Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="<?= $base_url ?>page/history"
+                        >Lich sử mượn sách</a
+                      >
+                    </li>
+                    <?php if ($_SESSION['user']['Quyen'] >= 1) : ?>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="<?= $base_url ?>admin/dashboard"
+                        >Trang quản lý</a
+                      >
+                    </li>
+                    <?php endif; ?>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="<?= $base_url ?>user/logout"
+                        >Đăng xuất</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <?php endif; ?>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="w-75 m-auto">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+              <li class="nav-item mx-5">
+                <a
+                  class="nav-link text-white active"
+                  aria-current="page"
+                  href="#"
+                  >Giới thiệu</a
+                >
+              </li>
+              <li class="nav-item mx-5 dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dịch vụ
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#"> Dv1 </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"> Dv2 </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"> Dv3 </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item mx-5 dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sản phẩm
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#"> DM1 </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"> DM2 </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"> DM3 </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item mx-5">
+                <a
+                  class="nav-link text-white active"
+                  aria-current="page"
+                  href="#"
+                  >Đặt chỗ</a
+                >
+              </li>
+              <li class="nav-item mx-5">
+                <a
+                  class="nav-link text-white active"
+                  aria-current="page"
+                  href="#"
+                  >Tin tức</a
+                >
+              </li>
+              <li class="nav-item mx-5">
+                <a
+                  class="nav-link text-white active"
+                  aria-current="page"
+                  href="#"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- menu end -->
+    </div>
+    <div class="container">
+      <!-- banner start -->
+      <div id="carouselExampleIndicators" class="carousel slide my-3">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/bannerhachie1.png" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/bannerhachie2.png" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/bannerhachie3.png" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- banner end -->
+      <!-- main start -->
+
+      <!-- main end -->
+    </div>
+    <div class="container-fluid bg-danger">
+      <div class="container">
+        <!-- footer start -->
+        <footer class="text-center text-lg-start bg-danger text-muted">
+          <!-- Section: Links  -->
+          <section class="bg_hr">
+            <div class="container text-center text-md-start mt-5">
+              <!-- Grid row -->
+              <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mb-4 mt-5">
+                  <!-- Content -->
+                  <a class="navbar-brand"
+                    ><img class="w-100" src="img/logotrang.png" alt=""
+                  /></a>
+                  <h6 class="text-uppercase fw-bold mb-4 text-white">
+                    Theo dõi chúng tôi:
+                  </h6>
+                  <div class="row my-3">
+                    <div class="col-md-4">
+                      <img src="img/icons8-fb-50 (1).png" alt="" />
+                    </div>
+                    <div class="col-md-4">
+                      <img src="img/icons8-zalo-50 (1).png" alt="" />
+                    </div>
+                    <div class="col-md-4">
+                      <img src="img/icons8-instagram-50.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mt-5">
+                  <!-- Content -->
+
+                  >
+                  <h6 class="text-uppercase fw-bold mb-4 text-white">
+                    Thông tin liên hệ:
+                  </h6>
+
+                  <div class="row mt-3">
+                    <div class="col-md-4 text-white">Mua hàng:</div>
+                    <div class="col-md-8 text-white fw-light fst-italic">
+                      <a class="text-warning btn-mymake fw-mymake" href=""
+                        >0783639343</a
+                      >
+                      (7:30 - 22:00)
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 text-white">CSKH:</div>
+                    <div class="col-md-8 text-white fw-light fst-italic">
+                      <a class="text-warning btn-mymake fw-mymake" href=""
+                        >0783639343</a
+                      >
+                      (8:00 - 21:30)
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 text-white">Email:</div>
+                    <div class="col-md-8 text-white fw-light">
+                      hachieskinspa@gmail.com
+                    </div>
+                  </div>
+
+                  <div class="row my-3">
+                    <div class="col-md-6">
+                      <img class="w-120" src="img/bocongthuong2.png" alt="" />
+                    </div>
+                    <div class="col-md-6">
+                      <img class="w-120" src="img/protected.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+            </div>
+          </section>
+
+          <!-- Copyright -->
+          <div class="text-center m-auto p-3 text-mymake">
+            <p>
+              © Copyright 2023 - Hachie Skin Spa<br />
+              Địa chỉ: Hẻm 386 Lê Duẩn - Long Thành - Đồng Nai<br />
+              SĐT: 0783.639.343
+            </p>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- footer end -->
+      </div>
+    </div>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
